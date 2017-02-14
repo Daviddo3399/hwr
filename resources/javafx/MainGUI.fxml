@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="vBox" prefHeight="699.0" prefWidth="1323.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.daviddo.program.gui.controller.MainGUIController">
+  <children>
+      <SplitPane dividerPositions="0.5, 0.5" prefHeight="772.0" prefWidth="1270.0">
+         <items>
+            <Pane fx:id="drawPane" maxHeight="680.0" maxWidth="680.0" minHeight="680.0" minWidth="680.0" prefHeight="680.0" prefWidth="680.0" />
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <Accordion fx:id="accordion" BorderPane.alignment="CENTER">
+                    <panes>
+                      <TitledPane fx:id="trainingPane" animated="false" prefHeight="475.0" prefWidth="325.0" text="Training">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="304.0" prefWidth="323.0">
+                                 <children>
+                                    <Label layoutX="22.0" layoutY="164.0" text="Trainiere: " />
+                                    <TextField fx:id="trainXTimesTextField" layoutX="84.0" layoutY="159.0" prefHeight="27.0" prefWidth="89.0" promptText="6000" />
+                                    <Label layoutX="173.0" layoutY="164.0" text=" mal." />
+                                    <Button fx:id="trainXTimesButton" layoutX="219.0" layoutY="159.0" mnemonicParsing="false" onAction="#handleTrainXTimesButton" text="Trainieren" />
+                                    <Separator layoutX="22.0" layoutY="122.0" prefHeight="29.0" prefWidth="277.0" />
+                                    <Label layoutX="22.0" layoutY="114.0" text="Neuronales Netz trainieren">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="22.0" layoutY="14.0" text="Bestimmtes Zeichen trainieren">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Separator layoutX="22.0" layoutY="23.0" prefHeight="29.0" prefWidth="277.0" />
+                                    <Label layoutX="22.0" layoutY="64.0" text="Zeichen:" />
+                                    <ComboBox fx:id="trainCharComboBox" layoutX="78.0" layoutY="59.0" prefHeight="27.0" prefWidth="102.0" promptText="Wählen Sie ein Zeichen" />
+                                    <Button fx:id="trainButton" layoutX="219.0" layoutY="59.0" mnemonicParsing="false" onAction="#handleTrainButton" text="Trainieren" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                    </panes>
+                  </Accordion>
+               </center>
+               <top>
+                  <Pane prefHeight="110.0" prefWidth="325.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label layoutX="24.0" layoutY="11.0" text="Zeichnung erkennnen">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="24.0" layoutY="22.0" prefHeight="29.0" prefWidth="277.0" />
+                        <Button fx:id="recognizeButton" layoutX="89.0" layoutY="51.0" mnemonicParsing="false" onAction="#handleRecognizeButton" prefHeight="27.0" prefWidth="148.0" text="Zeichnung erkennen" />
+                     </children>
+                  </Pane>
+               </top>
+               <bottom>
+                  <Pane prefHeight="253.0" prefWidth="325.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label layoutX="22.0" layoutY="14.0" text="Speichern &amp; Laden">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="22.0" layoutY="25.0" prefHeight="29.0" prefWidth="277.0" />
+                        <Button fx:id="saveButton" layoutX="218.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleSaveButton" prefHeight="27.0" prefWidth="81.0" text="Speichern" />
+                        <Label layoutX="22.0" layoutY="59.0" prefHeight="17.0" prefWidth="190.0" text="KNN speichern:" />
+                        <Button fx:id="loadButton" layoutX="218.0" layoutY="93.0" mnemonicParsing="false" onAction="#handleLoadButton" prefHeight="27.0" prefWidth="81.0" text="Laden" />
+                        <Label layoutX="23.0" layoutY="98.0" prefHeight="17.0" prefWidth="181.0" text="Vorgefertigtes KNN laden:" />
+                        <RadioButton fx:id="automaticSaveLoadRadioButton" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="23.0" layoutY="131.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleLoadSaveRadioButton" prefHeight="17.0" prefWidth="276.0" text="Automatisch Speichern &amp; Laden" textAlignment="RIGHT" />
+                        <Separator layoutX="24.0" layoutY="183.0" prefHeight="29.0" prefWidth="277.0" />
+                        <Label layoutX="24.0" layoutY="172.0" text="Daten &amp; Graphen">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="showDataGUIButton" onAction="#handleShowDataGUIButton" layoutX="219.0" layoutY="212.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="79.0" text="Anzeigen" />
+                     </children>
+                  </Pane>
+               </bottom>
+            </BorderPane>
+            <BorderPane maxWidth="300.0" minWidth="300.0" prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <AnchorPane BorderPane.alignment="CENTER">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="43.0" text="Top Treffer">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="solutionLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="116.0" layoutY="71.0" text="A">
+                           <font>
+                              <Font size="100.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="solutionPercentLabel" layoutX="117.0" layoutY="172.0" text="99.99 %" textFill="#006514">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="56.0" layoutY="223.0" text="Top 3 Treffer">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="topSolutionListView" layoutX="50.0" layoutY="260.0" prefHeight="105.0" prefWidth="200.0" />
+                        <Separator layoutX="31.0" layoutY="365.0" prefHeight="29.0" prefWidth="238.0" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="97.0" layoutY="394.0" text="Gesamt">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="fullListTableView" layoutX="9.0" layoutY="431.0" prefHeight="201.0" prefWidth="282.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Zeichen" />
+                            <TableColumn prefWidth="206.0" text="Wahrscheinlichkeit" />
+                          </columns>
+                        </TableView>
+                        <Separator layoutX="31.0" layoutY="194.0" prefHeight="29.0" prefWidth="238.0" />
+                        <Separator layoutX="31.0" layoutY="632.0" prefHeight="29.0" prefWidth="238.0" />
+                        <Button fx:id="wrongHitButton" layoutX="80.0" layoutY="661.0" mnemonicParsing="false" onAction="#handleWrongHitButton" prefHeight="27.0" prefWidth="141.0" text="Falscher Treffer?" />
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </items>
+      </SplitPane>
+  </children>
+</VBox>

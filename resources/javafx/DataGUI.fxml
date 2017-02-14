@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="419.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.daviddo.program.gui.controller.DataGUIController">
+   <center>
+      <TabPane prefHeight="419.0" prefWidth="603.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Fehlerrate (gesamt)">
+               <content>
+                  <BorderPane fx:id="completeBorderPane" prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <AnchorPane fx:id="completeAnchorPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <PieChart fx:id="completePieChart" prefHeight="455.0" prefWidth="732.0" />
+                           </children>
+                        </AnchorPane>
+                     </center>
+                  </BorderPane>
+               </content>
+          </Tab>
+          <Tab fx:id="tab" text="Fehlerrate">
+               <content>
+                  <BorderPane fx:id="characterBorderPane" prefHeight="200.0" prefWidth="200.0">
+                     <top>
+                        <AnchorPane prefHeight="51.0" prefWidth="732.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label layoutX="13.0" layoutY="17.0" text="Buchstaben wählen:" />
+                              <ChoiceBox fx:id="choiceBox" layoutX="141.0" layoutY="12.0" onAction="#handleChoiceBox" prefHeight="27.0" prefWidth="54.0" />
+                           </children>
+                        </AnchorPane>
+                     </top>
+                     <center>
+                        <AnchorPane fx:id="characterAnchorPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <PieChart fx:id="characterPieChart" prefHeight="400.0" prefWidth="732.0" />
+                           </children>
+                        </AnchorPane>
+                     </center>
+                  </BorderPane>
+               </content>
+          </Tab>
+            <Tab text="Zusatz">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="375.0" prefWidth="732.0">
+                     <children>
+                        <Separator layoutX="359.0" layoutY="67.0" orientation="VERTICAL" prefHeight="243.0" prefWidth="13.0" />
+                        <Label fx:id="recognizedTotalLabel" alignment="CENTER_RIGHT" layoutX="203.0" layoutY="98.0" prefHeight="17.0" prefWidth="151.0" text="Versuchte Erkennungen:" textAlignment="RIGHT" />
+                        <Label fx:id="mistakesTotalLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="186.0" layoutY="115.0" prefHeight="17.0" prefWidth="168.0" text="Gescheiterte Erkennungen:" textAlignment="RIGHT" />
+                        <Label fx:id="recognizedTotalCountLabel" layoutX="376.0" layoutY="98.0" prefHeight="17.0" prefWidth="82.0" text="10000" />
+                        <Label fx:id="mistakesTotalCountLabel" layoutX="376.0" layoutY="114.0" prefHeight="17.0" prefWidth="81.0" text="23500" />
+                        <Label fx:id="ratioPercentageLabel" layoutX="378.0" layoutY="135.0" prefHeight="17.0" prefWidth="51.0" />
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="124.0" layoutY="168.0" text="Häufigst falsch erkannter Buchstabe:" textAlignment="RIGHT" />
+                        <Label fx:id="mostMistakeLabel" layoutX="377.0" layoutY="169.0" text="A" />
+                        <Label layoutX="377.0" layoutY="187.0" text="Erkennungen (gesamt):" />
+                        <Label layoutX="378.0" layoutY="204.0" prefHeight="17.0" prefWidth="172.0" text="Erkennungen (gescheitert): " />
+                        <Label fx:id="mostMistakeRecognizedCountLabel" layoutX="550.0" layoutY="188.0" />
+                        <Label fx:id="mostMistakeMistakesCountLabel" layoutX="550.0" layoutY="205.0" />
+                        <Label fx:id="mostMistakePercentageLabel" layoutX="551.0" layoutY="220.0" />
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="138.0" layoutY="261.0" text="Aktuell benötigter Arbeitsspeicher:" textAlignment="RIGHT" />
+                        <Label fx:id="memoryLabel" layoutX="376.0" layoutY="261.0" text="1014MB" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>
