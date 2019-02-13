@@ -1,2 +1,2 @@
 # HWR
-Handwriting recognition program based on an neural network.
+Handwriting recognition program with an neural network.
